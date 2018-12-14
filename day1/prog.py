@@ -1,7 +1,18 @@
-f = open("input.txt", "r")
 x = 0
-for s in f:
-	x = x + int(s)
-print(x)
+saved = [0]
+dupeFound = False
+
+while not dupeFound:
+	for s in open("input.txt", "r"):
+		x = x + int(s)
+		if x in saved:
+			print(x)
+			print("dupe!")
+			dupeFound = True
+			break
+		saved.append(x)
+		#print("saved: " + str(x))
+	print("not found yet")
+
 	
 	
